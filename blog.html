@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style/blog.css">
+</head>
+<body>
+
+    <header></header>
+
+    <main class="blog-container">
+        <!-- Filtros -->
+        <input type="radio" name="filter" id="all" checked>
+        <input type="radio" name="filter" id="workouts">
+        <input type="radio" name="filter" id="nutrition">
+        <input type="radio" name="filter" id="tips">
+      
+        <div class="filter-options">
+          <label for="all">Todos</label>
+          <label for="workouts">Rutinas</label>
+          <label for="nutrition">Nutrición</label>
+          <label for="tips">Consejos</label>
+        </div>
+      
+        <!-- Artículos secundarios -->
+        <article class="article" data-tags="workouts">
+          <h3>HIIT: Quema grasa en 20 minutos</h3>
+          <p>Ideal si tenés poco tiempo: entrenamientos intensos que aceleran tu metabolismo.</p>
+          <a href="#" class="read-more">Leer más</a>
+        </article>
+      
+        <article class="article" data-tags="nutrition">
+          <h3>Plan de alimentación post-entreno</h3>
+          <p>Qué comer después del ejercicio para optimizar la recuperación muscular.</p>
+          <a href="#" class="read-more">Leer más</a>
+        </article>
+      
+        <article class="article" data-tags="tips">
+          <h3>Pequeños hábitos que mejoran tu salud</h3>
+          <p>Desde estiramientos hasta pausas activas: sumá bienestar sin darte cuenta.</p>
+          <a href="#" class="read-more">Leer más</a>
+        </article>
+
+        <article class="article" data-tags="workouts">
+            <h3>Entrená desde casa: rutina sin equipamiento</h3>
+            <p>No necesitás nada más que tu cuerpo para ponerte en forma. Esta rutina te guía paso a paso.</p>
+            <a href="#" class="read-more">Leer más</a>
+          </article>
+          
+          <article class="article" data-tags="nutrition">
+            <h3>3 ideas de desayunos energéticos</h3>
+            <p>Opciones saludables, rápidas y ricas para empezar tu día con todo.</p>
+            <a href="#" class="read-more">Leer más</a>
+          </article>
+          
+          <article class="article" data-tags="tips">
+            <h3>¿Tomás suficiente agua? Tips para mantenerte hidratado</h3>
+            <p>La hidratación es clave. Te mostramos cómo crear el hábito sin esfuerzo.</p>
+            <a href="#" class="read-more">Leer más</a>
+          </article>
+          
+          <article class="article" data-tags="workouts,nutrition">
+            <h3>Guía completa: Entrenamiento y alimentación para ganar masa muscular</h3>
+            <p>Combiná la rutina ideal con una dieta efectiva y notá los resultados.</p>
+            <a href="#" class="read-more">Leer más</a>
+          </article>
+          
+          <article class="article " data-tags="tips">
+            <h3>Mejorá tu postura con estos ejercicios simples</h3>
+            <p>Ejercicios diarios para evitar dolores y sentirte con más energía.</p>
+            <a href="#" class="read-more">Leer más</a>
+          </article>
+          
+          <article class="article" data-tags="nutrition">
+            <h3>Snacks saludables para media mañana</h3>
+            <p>Evitá los ultraprocesados con estas opciones caseras y nutritivas.</p>
+            <a href="#" class="read-more">Leer más</a>
+          </article>
+
+          <article class="article" data-tags="nutrition">
+            <h3>Top 10 alimentos para una dieta saludable y energética</h3>
+            <p>Incluí estos alimentos en tu día a día para mejorar tu rendimiento y bienestar.</p>
+            <a href="#" class="read-more">Leer más</a>
+          </article>
+          
+          <article class="article" data-tags="tips">
+            <h3>Errores comunes al empezar en el gimnasio</h3>
+            <p>Te contamos qué evitar para no frustrarte y lograr tus objetivos.</p>
+            <a href="#" class="read-more">Leer más</a>
+          </article>
+          
+          <article class="article" data-tags="workouts,tips">
+            <h3>Cómo mantener la motivación para entrenar cada semana</h3>
+            <p>Consejos prácticos para que el ejercicio se convierta en parte de tu rutina.</p>
+            <a href="#" class="read-more">Leer más</a>
+          </article>
+          
+          <article class="article" data-tags="nutrition,tips">
+            <h3>Planificá tus comidas como un profesional del fitness</h3>
+            <p>Organizate con estos trucos y comé sano sin complicarte la vida.</p>
+            <a href="#" class="read-more">Leer más</a>
+          </article>
+      
+        <!-- Sidebar estilo periódico -->
+        <aside class="sidebar">
+            <div class="sidebar-item">
+                <h3>Sobre Nosotros</h3>
+                <p>Somos un equipo de <strong>entrenadores personales</strong>, <strong>nutricionistas</strong> y <strong>especialistas en bienestar</strong> dedicados a ayudarte a alcanzar tus metas físicas y mejorar tu calidad de vida.</p>
+                <p>En este blog compartimos información útil, rutinas adaptables, recetas saludables y consejos prácticos para acompañarte en cada etapa de tu transformación.</p>
+                <p><em>¡Nos apasiona motivarte!</em></p>
+              </div>
+        </aside>
+      
+        <!-- Sección de comentarios -->
+        <section class="comments">
+          <h3>Comentarios</h3>
+      
+          <div class="comment">
+            <div class="avatar"></div>
+            <div class="comment-body">
+              <strong>Lucas</strong>
+              <p>¡Excelente artículo! Justo lo que necesitaba para mejorar mis rutinas.</p>
+            </div>
+          </div>
+      
+          <div class="comment">
+            <div class="avatar"></div>
+            <div class="comment-body">
+              <strong>Martina</strong>
+              <p>Me encantó el consejo del post-entreno. ¿Recomiendan alguna receta?</p>
+            </div>
+          </div>
+
+          <div class="comment">
+            <div class="avatar"></div>
+            <div class="comment-body">
+              <strong>María</strong>
+              <p>Muy buen contenido, me encantó la parte sobre nutrición balanceada.</p>
+            </div>
+          </div>
+          
+          <div class="comment">
+            <div class="avatar"></div>
+            <div class="comment-body">
+              <strong>Julián</strong>
+              <p>Estaría genial un artículo con ejercicios para hacer en casa. ¡Gracias!</p>
+            </div>
+          </div>
+          
+          <div class="comment">
+            <div class="avatar"></div>
+            <div class="comment-body">
+              <strong>Sofía</strong>
+              <p>Los consejos sobre descanso fueron súper útiles. ¡Gracias por compartir!</p>
+            </div>
+          </div>
+          
+          <div class="comment">
+            <div class="avatar"></div>
+            <div class="comment-body">
+              <strong>Emiliano</strong>
+              <p>¡Me encantó el diseño del sitio! Y los artículos están muy bien explicados.</p>
+            </div>
+          </div>
+          
+          <div class="comment">
+            <div class="avatar"></div>
+            <div class="comment-body">
+              <strong>Valentina</strong>
+              <p>Muy motivador, me dieron ganas de empezar a entrenar ya. ❤️</p>
+            </div>
+          </div>
+
+        </section>
+      </main>
+
+    <footer></footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
