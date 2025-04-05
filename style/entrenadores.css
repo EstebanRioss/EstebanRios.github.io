@@ -1,0 +1,262 @@
+:root {
+  /* Light Theme Colors */
+  --bg-color: #f8f9fa;
+  --text-color: #1e1e2e;
+  --primary-color: #0077cc;
+  --accent-color: #ffcc00;
+  --header-bg: #ffffff;
+  --card-bg: #ffffff;
+  --link-color: #0077cc;
+  --hover-color: #005fa3;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1E1E2E;
+  --text-color: #F8F8F2;
+  --primary-color: #0077cc;
+  --accent-color: #ffcc00;
+  --header-bg: #2A2A40;
+  --card-bg: #2A2A40;
+  --link-color: #82AAFF;
+  --hover-color: #e6b800;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--main-bg);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+  margin-top: 150px;
+}
+
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.trainers-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.trainer-card {
+  width: 280px;
+  flex: 0 0 auto;
+  background: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  perspective: 1000px;
+  transition: transform 0.4s ease;
+}
+
+.trainer-card-inner {
+  position: relative;
+  width: 100%;
+  padding-top: 130%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.trainer-card:hover .trainer-card-inner {
+  transform: rotateY(180deg);
+}
+
+.trainer-card-front,
+.trainer-card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.trainer-card-front {
+  background: var(--trainer-card-gradient);
+  color: var(--text-color);
+}
+
+.trainer-card-front img {
+  width: 80%;
+  height: 200px;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.trainer-card-back {
+  background: var(--card-bg);
+  transform: rotateY(180deg);
+  color: var(--text-color);
+  text-align: center;
+}
+
+.trainers-skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  view-timeline-name: --skills;
+  view-timeline-axis: block;
+  animation-timeline: --skills;
+  animation-name: show;
+  animation-range: entry 25% cover 50%;
+}
+
+.trainer-card2 {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.trainer-card2:hover {
+  transform: translateY(-5px);
+}
+
+.trainer-card2 h4 {
+  font-size: 1.4rem;
+  margin-bottom: 1.2rem;
+  color: var(--text-color);
+}
+
+.skill-bar {
+  margin-bottom: 1.2rem;
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+  color: var(--text-color);
+}
+
+.skill-progress {
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.skill-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-color-2));
+  border-radius: 8px;
+  transition: width 1.2s ease-in-out;
+}
+
+/* Rating Stars */
+.rating-container {
+  max-width: auto;
+  margin: 2rem auto;
+  padding: 1.5rem 1rem;
+  background: var(--card-bg, #fff);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  color: var(--text-color, #333);
+  view-timeline-name: --raiting;
+  view-timeline-axis: block;
+  animation-timeline: --raiting;
+  animation-name: show;
+  animation-range: entry 25% cover 50%;
+}
+
+.rating-container h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.rating-container p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary, #666);
+}
+
+.rating {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s ease;
+  position: relative;
+}
+
+.rating label::before {
+  content: "★";
+}
+
+.rating input:checked ~ label::before,
+.rating label:hover ~ label::before,
+.rating label:hover::before {
+  color: gold;
+}
+
+.rating label:hover {
+  transform: scale(1.15);
+}
+
+@keyframes slideFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-text {
+  opacity: 0;
+  animation: slideFadeIn 0.8s ease-out forwards;
+}
+
+.animate-text.delay {
+  animation-delay: 0.3s;
+}
+
+@keyframes show{
+  from{
+    opacity: 0;
+    scale: 25%;
+  }
+
+
+
+  to{
+    opacity: 1;
+    scale: 100%;
+  }
+}

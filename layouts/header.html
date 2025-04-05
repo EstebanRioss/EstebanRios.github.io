@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>header</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+          <div class="logo">
+            <img src="../images/logo.png" alt="Logo">
+          </div>
+      
+          <!-- Menú responsive activado por checkbox -->
+          <input type="checkbox" id="menu-toggle" class="menu-checkbox" />
+    <label for="menu-toggle" class="menu-toggle-button" aria-label="Abrir menú de navegación">☰</label>
+      
+          <ul class="nav-links">
+            <li><a href="../index.html">Inicio</a></li>
+            <li class="has-mega-menu">
+              <a href="#">Servicios</a>
+              <div class="mega-menu">
+                <ul>
+                  <li><a href="../clases.html">Clases</a></li>
+                  <li><a href="../entrenadores.html">Entrenadores</a></li>
+                  <li><a href="../precios.html">Precios</a></li>
+                  <li><a href="../blog.html">Blog</a></li>
+                </ul>
+              </div>
+            </li>
+            <li><a href="../formulario.html">Contacto</a></li>
+            <li>
+              <button onclick="toggleTheme()" class="theme-toggle-button">🌙 Cambiar tema</button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+</body>
+</html>

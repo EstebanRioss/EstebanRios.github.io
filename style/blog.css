@@ -1,0 +1,275 @@
+:root {
+  /* Light Theme */
+  --background: #f5f5f5;
+  --text-color: #1e1e2e;
+  --primary-color: #007bff;
+  --accent-color: #ffcc00;
+  --box-bg: #fff;
+  --hover-color: #0056b3;
+  --border-color: #ccc;
+}
+
+[data-theme="dark"] {
+  --background: #1e1e2e;
+  --text-color: #f8f8f2;
+  --primary-color: #82AAFF;
+  --accent-color: #ffcc00;
+  --box-bg: #26264d;
+  --hover-color: #4b5294;
+  --border-color: #444;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: var(--background);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  margin-top: 200px;
+}
+
+/* Scroll Snap Section */
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  padding: 2rem;
+}
+
+/* General Content Styling */
+h1, h2, h3 {
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+}
+
+/* Blog Grid Layout */
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+}
+
+.sidebar {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+}
+
+.article {
+  grid-column: auto;
+  grid-row: auto;
+}
+
+/* Article Styling */
+article {
+  background-color: var(--box-bg);
+  border: 1px solid var(--border-color);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  view-timeline-name: --article;
+  view-timeline-axis: block;
+  animation-timeline: --article;
+  animation-name: show;
+  animation-range: entry 25% cover 50%;
+}
+
+article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Read More Button */
+.read-more {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+  background-color: var(--background);
+}
+
+/* Sidebar Styling */
+.sidebar-item {
+  background-color: var(--box-bg);
+  border: 1px solid var(--border-color);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-item ul li {
+  margin-bottom: 5px;
+}
+
+/* Filter Options */
+.filter-options {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  height: 10px;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filter-options input[type="radio"] {
+  display: none;
+}
+
+.filter-options label {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: var(--box-bg);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filter-options label:hover {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+}
+
+/* Filtering Logic */
+article {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#all:checked ~ .main-article,
+#all:checked ~ .article,
+#workouts:checked ~ .article[data-tags*="workouts"],
+#nutrition:checked ~ .article[data-tags*="nutrition"],
+#tips:checked ~ .article[data-tags*="tips"] {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#workouts:checked ~ .article:not([data-tags*="workouts"]),
+#nutrition:checked ~ .article:not([data-tags*="nutrition"]),
+#tips:checked ~ .article:not([data-tags*="tips"]) {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+#all:checked ~ .filter-options label[for="all"],
+#workouts:checked ~ .filter-options label[for="workouts"],
+#nutrition:checked ~ .filter-options label[for="nutrition"],
+#tips:checked ~ .filter-options label[for="tips"] {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.comments {
+  grid-column: 1 / span 3;
+  margin-top: 3rem;
+  background-color: var(--box-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  view-timeline-name: --comments;
+  view-timeline-axis: block;
+  animation-timeline: --comments;
+  animation-name: show;
+  animation-range: entry 25% cover 50%;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  border-radius: 50%;
+  margin-right: 1rem;
+  position: relative;
+  view-timeline-name: --comments;
+  view-timeline-axis: block;
+  animation-timeline: --comments;
+  animation-name: show;
+  animation-range: entry 25% cover 50%;
+}
+
+.comment-body {
+  view-timeline-name: --comments;
+  view-timeline-axis: block;
+  animation-timeline: --comments;
+  animation-name: show;
+  animation-range: entry 25% cover 50%;
+  background-color: var(--background);
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+}
+
+/* Scroll Reveal animación */
+
+@keyframes show{
+  from{
+    opacity: 0;
+    scale: 25%;
+  }
+
+
+
+  to{
+    opacity: 1;
+    scale: 100%;
+  }
+}
