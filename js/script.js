@@ -64,7 +64,18 @@ document.addEventListener('DOMContentLoaded', function() {
 const toggleTheme = () => {
   const current = document.documentElement.getAttribute("data-theme");
   document.documentElement.setAttribute("data-theme", current === "dark" ? "light" : "dark");
+  localStorage.setItem("theme", current === "dark" ? "light" : "dark");
 };
+
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    document.documentElement.setAttribute("data-theme", savedTheme);
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+});
+
 window.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.skill-progress').forEach(bar => {
     const value = bar.getAttribute('data-skill-percentage');
