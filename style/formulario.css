@@ -86,15 +86,6 @@ a:hover {
   background-color: var(--bg-color);
 }
 
-.container {
-  width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: var(--bg-container);
-  border-radius: 10px;
-  box-shadow: var(--box-shadow);
-}
-
 .form-group {
   margin-bottom: 15px;
 }
