@@ -20,6 +20,14 @@
     --link-color: #82AAFF;
     --hover-color: #e6b800;
   }
+
+  #logo {
+    content: url('../images/logo.png');
+  }
+
+  [data-theme="dark"] #logo {
+    content: url('../images/logo-oscuro.png');
+  }
   
   /* Global Reset */
   * {
