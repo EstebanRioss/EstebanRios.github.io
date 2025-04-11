@@ -73,7 +73,6 @@
   }
   
   header {
-    background-color: var(--header-bg);
     padding: 1rem 0;
     position: fixed;
     top: 0;
@@ -83,7 +82,19 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(8px);
   }
-  
+  .navbar a{
+    background-color: transparent;
+    color: white;
+  }
+
+  .navbar.scrolled {
+    background-color: var(--header-bg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  .navbar.scrolled a{
+    color: var(--text-color);
+  }
+
   /* Nav Container */
   nav {
     display: flex;
@@ -112,7 +123,6 @@
   
   nav ul li a {
     text-decoration: none;
-    color: var(--text-color);
     font-weight: 500;
     font-size: 1rem;
     position: relative;
