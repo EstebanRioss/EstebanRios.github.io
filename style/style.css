@@ -327,7 +327,7 @@
   .hero-overlay {
     position: relative;
     z-index: 1;
-    color: var(--text-color);
+    color: white;
     padding: 2rem;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
