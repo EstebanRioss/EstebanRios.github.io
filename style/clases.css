@@ -83,10 +83,27 @@ a:hover {
 }
 
 .filter-options {
+  position: relative;
   display: flex;
+  border: 1px solid var(--accent-color);
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  background-color: var(--color-card-bg);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  padding: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.filter-options::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: 1.5rem;
+  z-index: 0;
+  transition: transform 0.3s ease;
 }
 
 input[type="radio"] {
@@ -94,16 +111,49 @@ input[type="radio"] {
 }
 
 .filter-options label {
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
+  flex: 1;
+  text-align: center;
+  padding: 0.8rem 0;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  background-color: var(--color-card-bg);
+  position: relative;
+  z-index: 1;
+  font-weight: 500;
   color: var(--color-text);
+  transition: color 0.3s ease, font-weight 0.3s ease;
 }
 
-.filter-options label:hover {
-  background-color: #ddd;
+/* Animación del highlight */
+#all:checked ~ .filter-options::before {
+  transform: translateX(0%);
+}
+
+#musculacion:checked ~ .filter-options::before {
+  transform: translateX(100%);
+}
+
+#crossfit:checked ~ .filter-options::before {
+  transform: translateX(200%);
+}
+
+#yoga:checked ~ .filter-options::before {
+  transform: translateX(300%);
+}
+
+/* Selected label styling */
+#all:checked ~ .filter-options label[for="all"],
+#musculacion:checked ~ .filter-options label[for="musculacion"],
+#crossfit:checked ~ .filter-options label[for="crossfit"],
+#yoga:checked ~ .filter-options label[for="yoga"] {
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+input#all:checked ~ .filter-options label[for="all"],
+input#musculacion:checked ~ .filter-options label[for="musculacion"],
+input#crossfit:checked ~ .filter-options label[for="crossfit"],
+input#yoga:checked ~ .filter-options label[for="yoga"] {
+  background-color: var(--active-bg);
+  color: var(--active-color);
 }
 
 .classes-grid {
